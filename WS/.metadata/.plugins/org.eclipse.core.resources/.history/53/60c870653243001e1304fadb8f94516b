@@ -1,0 +1,21 @@
+package com.cts.sbwdd.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.cts.sbwdd.services.ConsumerService;
+
+@Controller
+public class ConsumerController {
+
+	@Autowired 
+	private ConsumerService consumerService;
+	
+	@GetMapping({"","/","/home"})
+	public ModelAndView showAllEmpsAction() {
+		return new ModelAndView("consumers-page","consumers",consumerService.getAll());
+	}
+		
+}

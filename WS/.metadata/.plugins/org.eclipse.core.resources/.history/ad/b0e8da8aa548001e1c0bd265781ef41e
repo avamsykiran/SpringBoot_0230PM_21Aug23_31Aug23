@@ -1,0 +1,14 @@
+package com.cts.sbrdd.services;
+
+import java.util.List;
+
+import com.cts.sbrdd.entities.Consumer;
+
+public interface ConsumerService {
+
+	List<Consumer> getAll();
+	Consumer getById(long consumerId);
+	Consumer add(Consumer consumer);
+	Consumer update(Consumer consumer);
+	void deleteById(long consumerId);
+}

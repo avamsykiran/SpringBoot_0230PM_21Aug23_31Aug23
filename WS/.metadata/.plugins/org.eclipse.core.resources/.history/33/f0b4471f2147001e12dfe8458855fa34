@@ -1,0 +1,5 @@
+package com.cts.sbrdd.exceptions;
+
+public class InvalidConsumerDetailsException extends Exception {
+
+}

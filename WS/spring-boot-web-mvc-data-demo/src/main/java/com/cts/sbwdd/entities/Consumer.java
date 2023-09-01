@@ -1,0 +1,106 @@
+package com.cts.sbwdd.entities;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+@Entity
+@Table(name="consumers")
+public class Consumer {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long consumerId;
+	
+	@NotBlank(message = "Full Name is mandatory field")
+	@Size(min = 5,max=50,message = "Full Name shall be between 5 and 50 chars in length")
+	@Column(name="fnm",nullable = false)
+	private String fullName;
+	
+	@NotBlank(message = "Mobile is mandatory field")
+	@Pattern(regexp = "[1-9][0-9]{9}",message = "Mobile number is a 10 digit number")
+	@Column(name="mob",nullable = false)
+	private String mobile;
+	
+	@NotBlank(message = "Mail Id is mandatory field")
+	@Email(message = "Valid mail id expected")
+	@Column(name="mid",nullable = false)
+	private String mailId;
+	
+	@NotNull(message = "Date Of Birth is a mandatory field")
+	@Past(message = "Date Of Birth must be a older date")
+	@Column(name="dob",nullable = false)
+	@DateTimeFormat(iso = ISO.DATE)
+	private LocalDate dateOfBirth;	
+	
+	
+	public Consumer() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Long getConsumerId() {
+		return consumerId;
+	}
+
+
+	public void setConsumerId(Long consumerId) {
+		this.consumerId = consumerId;
+	}
+
+
+	public String getFullName() {
+		return fullName;
+	}
+
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+
+	public String getMobile() {
+		return mobile;
+	}
+
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+
+	public String getMailId() {
+		return mailId;
+	}
+
+
+	public void setMailId(String mailId) {
+		this.mailId = mailId;
+	}
+
+
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+
+	public void setDateOfBirth(LocalDate dateOfbirth) {
+		this.dateOfBirth = dateOfbirth;
+	}
+	
+	
+}

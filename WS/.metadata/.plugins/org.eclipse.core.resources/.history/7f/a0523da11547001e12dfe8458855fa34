@@ -1,0 +1,55 @@
+package com.cts.sbwdd.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.cts.sbwdd.entities.Consumer;
+import com.cts.sbwdd.services.ConsumerService;
+
+@Controller
+public class ConsumerController {
+
+	@Autowired 
+	private ConsumerService consumerService;
+	
+	@GetMapping({"","/","/home"})
+	public ModelAndView showAllConsumersAction() {
+		return new ModelAndView("consumers-page","consumers",consumerService.getAll());
+	}
+	
+	@GetMapping("/add")
+	public ModelAndView showConsumerFormAction() {
+		return new ModelAndView("consumer-form-page","consumer",new Consumer());
+	}
+	
+	@PostMapping("/add")
+	public ModelAndView addConsumerAction(@ModelAttribute("consumer") @Valid Consumer consumer,BindingResult results) {
+		ModelAndView mv = null;
+		
+		if(results.hasErrors()) {
+			mv = new ModelAndView("consumer-form-page","consumer",consumer);
+		}else {
+			consumerService.add(consumer);
+			mv = new ModelAndView("redirect:/home");
+		}
+		
+		return mv;
+	}
+	
+
+	@GetMapping("/edit")
+	public ModelAndView showConsumerFormForEditAction(@RequestParam("id") long consumerId) {
+		return new ModelAndView("consumer-form-page","consumer",consumerService.getById(consumerId));
+	}
+	
+	
+		
+}

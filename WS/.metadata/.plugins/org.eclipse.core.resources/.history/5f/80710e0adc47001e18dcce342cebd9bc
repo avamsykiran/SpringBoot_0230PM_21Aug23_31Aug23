@@ -1,0 +1,5 @@
+app.title=Spring Boot 2.0 Empowered Console Application
+spring.profiles.active=dev
+#---
+spring.config.activate.on-profile=dev
+app.title=Spring Boot 2.0 Empowered Console Application (DEV MODE)

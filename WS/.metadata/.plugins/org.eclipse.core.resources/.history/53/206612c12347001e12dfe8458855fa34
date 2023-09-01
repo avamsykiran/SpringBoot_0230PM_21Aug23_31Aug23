@@ -1,0 +1,24 @@
+package com.cts.sbrdd.controllers;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.cts.sbrdd.exceptions.ConsumerNotFoundException;
+import com.cts.sbrdd.exceptions.InvalidConsumerDetailsException;
+
+@RestControllerAdvice
+public class GlobalExceptionsAdvice {
+
+	@ExceptionHandler(ConsumerNotFoundException.class)
+	public ResponseEntity<String> handleConsumerNotFoundException(ConsumerNotFoundException exp){
+		return new ResponseEntity<String>("No Such Consumer Is Found",HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(InvalidConsumerDetailsException.class)
+	public ResponseEntity<String> handleInvalidConsumerDetailsException(InvalidConsumerDetailsException exp){
+		String errMsg = exp.get
+		return new ResponseEntity<>(errMsg, HttpStatus.BAD_REQUEST);
+	}
+}

@@ -1,0 +1,5 @@
+package com.cts.sbwdd.entities;
+
+public class Consumer {
+
+}

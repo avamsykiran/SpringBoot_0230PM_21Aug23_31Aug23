@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;ProfileDemoRunner.java&apos; to &apos;spring-boot-profile-demo/src/main/java/com.cts.sbpd.runners&apos;&#x0D;&#x0A;- Original project: &apos;spring-boot-profile-demo&apos;&#x0D;&#x0A;- Destination element: &apos;spring-boot-profile-demo/src/main/java/com.cts.sbpd.runners&apos;&#x0D;&#x0A;- Original element: &apos;com.cts.sbpd.ProfileDemoRunner.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.cts.sbpd.runners" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.cts.sbpd{ProfileDemoRunner.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1693471772831" units="1" version="1.0"/>
+</session>

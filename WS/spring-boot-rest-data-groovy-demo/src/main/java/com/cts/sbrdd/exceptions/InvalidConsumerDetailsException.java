@@ -1,0 +1,19 @@
+package com.cts.sbrdd.exceptions;
+
+import org.springframework.validation.BindingResult;
+
+public class InvalidConsumerDetailsException extends Exception {
+
+	private BindingResult results;
+	
+	public InvalidConsumerDetailsException(BindingResult results) {
+		super();
+		this.results=results;
+	}
+
+	public BindingResult getResults() {
+		return results;
+	}
+	
+	
+}
